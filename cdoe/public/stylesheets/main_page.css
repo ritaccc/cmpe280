@@ -130,3 +130,21 @@ div.scrollmenu a.menu_active{
     border: none;
     cursor: pointer;
 }
+
+img {
+    align-self: center;
+}
+.desc {
+    text-align: center;
+}
+.resizeMe {
+    width: 200px;
+    height: 200px;
+    text-align: center;
+}
+
+#sample {
+    width: 200px;
+    height: 200px;
+    margin: 1em;
+}

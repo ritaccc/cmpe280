@@ -4,6 +4,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" type="text/css" href="/stylesheets/main_page.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/js/jquery-ui/jquery-ui.css" />
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/drag.js"></script>
+    <script type="text/javascript" src="/js/resize.js"></script>
+    <script type="text/javascript" src="/js/jquery-ui/jquery-ui.js"></script>
     <title>Main Page</title>
 
     <!--change background color-->
@@ -84,29 +89,26 @@
         <h3>Shopping Catalog</h3>
     </div>
 </div>
-    <div class="gallery">
-        <a target="_blank" onclick="alert('You are trying to see clothes')" >
+    <div class="gallery dragMe resizeMe">
+        <a target="_blank">
             <img src="/image/clothes.jpg" alt="clothes" width="600" height="400">
         </a>
         <div class="desc">clothes</div>
     </div>
 
-    <div class="gallery">
-        <a target="_blank"  onclick="alert('You are trying to see bags')">
+    <div class="gallery dragMe resizeMe">
+        <a target="_blank">
             <img src="/image/bags.jpg" alt="bags" width="600" height="400">
         </a>
         <div class="desc">bags</div>
     </div>
 
-    <div class="gallery">
-        <a target="_blank"  onclick="alert('You are trying to see shoes')">
+    <div class="gallery dragMe resizeMe">
+        <a target="_blank">
             <img src="/image/shoes.jpg" alt="shoes" width="600" height="400">
         </a>
         <div class="desc">shoes</div>
     </div>
-
-
-
     <script>
     // Active menu and highlight it
     var scrollmenu = document.getElementsByClassName("scrollmenu");
