@@ -2,11 +2,124 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>User login</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/main_page.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Main Page</title>
+
+    <!--change background color-->
+    <script type="text/javascript">
+        function changeBGColor()
+        {
+            var color = document.getElementById("colorChooser").value;
+            document.body.style.backgroundColor = color;
+        }
+
+        function searchAlert(){
+            var text = document.getElementsByName("search");
+            alert("You are trying to search " + text[0].value);
+        }
+
+    </script>
+
+
 </head>
 <body>
-<h1>
-    This is main page!
-</h1>
+<div class="sidenav">
+    <a href="#about">About</a>
+    <a href="/">Log In</a>
+    <a href="/">Register</a>
+
+
+    <div class = "Setting">
+        <form action="">
+            <select id="colorChooser">
+                <option vlue = "hide"> color select</option>
+                <option value="red">Red</option>
+                <option value="green">Green</option>
+                <option value="blue">Blue</option>
+                <option value = "white"> White </option>
+            </select>
+            <input type="button" value="Change background color" onclick="changeBGColor()" />
+        </form>
+    </div>
+
+</div>
+
+
+<div class="bckimage">
+<div class="main">
+    <!--The header of the page-->
+    <div class="scrollmenu">
+        <a href="#mainpage" class = "menu_active">Main</a>
+        <a href="#newarrival" class = "menu" >New Arrivals</a>
+        <a href="#women" class = "menu">Women</a>
+        <a href="#men" class = "menu"  >Men</a>
+        <a href="#kids" class = "menu" >Kids</a>
+        <a href="#brands" class = "menu" >Brands</a>
+        <a href="#sale" class = "menu">Sale</a>
+
+        <div class="search-container">
+            <form>
+                <input type="text" placeholder="Search.." name="search" >
+                <button type="submit" onclick="searchAlert()" ><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+
+
+        <!--<div class = "scrollmenu-right">-->
+            <!--<a href="#contact">Contact Us</a>-->
+            <!--<a href="#cart">Cart</a>-->
+
+        <!--</div>-->
+    </div>
+
+
+    <div class = "text">
+    <h2>FireLight Online Thrift Store Main Page</h2>
+    <p>Objectives</p>
+    <p>The objective of the team is to build an online thrift store which can attract customers to sell/buy clothes. The website would also contribute to environment benefits.</p>
+    <p>Problem statement</p>
+    <p>Each year, American threw 13 million tons of clothing away and most of them are being trashed. Most of the clothes should be recycled. Currently, there are no online thrift store focus on clothing on the market. At the same time, some websites do not have proper UI design, and are not attractive to customers.
+    </p>
+        <h3>Shopping Catalog</h3>
+    </div>
+</div>
+    <div class="gallery">
+        <a target="_blank" onclick="alert('You are trying to see clothes')" >
+            <img src="/image/clothes.jpg" alt="clothes" width="600" height="400">
+        </a>
+        <div class="desc">clothes</div>
+    </div>
+
+    <div class="gallery">
+        <a target="_blank"  onclick="alert('You are trying to see bags')">
+            <img src="/image/bags.jpg" alt="bags" width="600" height="400">
+        </a>
+        <div class="desc">bags</div>
+    </div>
+
+    <div class="gallery">
+        <a target="_blank"  onclick="alert('You are trying to see shoes')">
+            <img src="/image/shoes.jpg" alt="shoes" width="600" height="400">
+        </a>
+        <div class="desc">shoes</div>
+    </div>
+
+
+
+    <script>
+    // Active menu and highlight it
+    var scrollmenu = document.getElementsByClassName("scrollmenu");
+    var menus = scrollmenu[0].getElementsByTagName("a");
+    for (var i = 0; i < menus.length; i++) {
+    menus[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("menu_active");
+    current[0].className = current[0].className.replace("_active", "");
+    this.className += "_active";
+    });
+    }
+    </script>
+
+
 </body>
 </html>

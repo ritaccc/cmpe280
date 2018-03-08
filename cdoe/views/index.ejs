@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="/Semantic-UI-CSS/components/site.css">
 
     <link rel="stylesheet" type="text/css" href="/Semantic-UI-CSS/components/container.css">
-    <link rel="stylesheet" type="text/css" href="/Semantic-UI-CSS/components/grid.css">
+    <link rel="stylesheet" typenode="text/css" href="/Semantic-UI-CSS/components/grid.css">
     <link rel="stylesheet" type="text/css" href="/Semantic-UI-CSS/components/header.css">
     <link rel="stylesheet" type="text/css" href="/Semantic-UI-CSS/components/image.css">
     <link rel="stylesheet" type="text/css" href="/Semantic-UI-CSS/components/menu.css">
@@ -79,7 +79,9 @@
 <body class="bodybg">
 <div class="ui middle aligned center aligned grid">
     <div class="column">
-        <form class="ui large form" method="get" action="/main_page" onsubmit="click_login_function(this)">
+
+             <form class="ui large form" method="get" action="/main_page" onsubmit="click_login_function(this)">
+
             <!--<fieldset>-->
             <!--<legend>User login</legend>-->
             <!--<label>Email:</label> <input type="email" name="user" id="user" required>-->
@@ -103,7 +105,7 @@
                         <input id="password" type="password" name="PASSWORD" placeholder="Password" required>
                     </div>
                 </div>
-                <div><input class="ui fluid large blue submit button" type="submit" name="login" value="Login" /></div>
+                <div><input class="ui fluid large blue submit button" type="submit" name="login" action="/main_page" value="Login" /></div>
 
                 <br>
                 <div><input class="ui fluid large blue submit button" type="button" name="register" value="Register" onclick="click_register_function(this)"/></div>
@@ -118,5 +120,10 @@
 
 <br/>
 <p id="test"></p>
+
 </body>
 </html>
+
+
+
+
