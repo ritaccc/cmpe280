@@ -20,4 +20,14 @@ router.get('/register', function(req, res, next) {
     res.render('register');
 });
 
+
+/* GET home page. */
+router.get('/hello', function(req, res, next) {
+    res.render('hello');
+});
+
+router.post('/hello', function(req, res) {
+    res.render('hello');
+});
+
 module.exports = router;
