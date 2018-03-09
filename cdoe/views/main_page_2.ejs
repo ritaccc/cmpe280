@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
     <!-- Site Properties -->
+    <title>FireLight HomePage</title>
+    <link rel="stylesheet" type="text/css" href="/jquery-ui-1.12.1.custom/jquery-ui.css" />
     <title>Homepage_FireLight</title>
     <link rel="stylesheet" type="text/css" href="/Semantic-UI-CSS/components/reset.css">
     <link rel="stylesheet" type="text/css" href="/Semantic-UI-CSS/components/site.css">
@@ -28,20 +30,8 @@
     <link rel="stylesheet" type="text/css" href="/Semantic-UI-CSS/components/sidebar.css">
     <link rel="stylesheet" type="text/css" href="/Semantic-UI-CSS/components/dropdown.css">
     <link rel="stylesheet" type="text/css" href="/Semantic-UI-CSS/components/transition.css">
-    <link rel="stylesheet" type="text/css" href="/js/jquery-ui/jquery-ui.css"/>
-    <link rel="stylesheet" type="text/css" href="/stylesheets/main_page.css"/>
-    <link rel="stylesheet" type="text/css" href="/jquery-ui-1.12.1.custom/jquery-ui.css" />
 
     <style type="text/css">
-
-        #selectable .ui-selecting {
-            background-color: gray;
-        }
-
-        #selectable .ui-selected {
-            background-color: black;
-            color: white;
-        }
 
         .hidden.menu {
             display: none;
@@ -143,50 +133,29 @@
             }
         }
 
-
     </style>
 
-    <script type="text/javascript" src="/js/jquery.js"></script>
-    <script type="text/javascript" src="/js/drag.js"></script>
-    <script type="text/javascript" src="/js/resize.js"></script>
-    <script type="text/javascript" src="/js/draganddrop.js"></script>
-    <script type="text/javascript" src="/js/jquery-ui/jquery-ui.js"></script>
     <script src="/Semantic-UI-CSS/components/visibility.js"></script>
     <script src="/Semantic-UI-CSS/components/sidebar.js"></script>
     <script src="/Semantic-UI-CSS/components/transition.js"></script>
+    <script type="text/javascript" src="/js/jquery.js"></script>
     <script type="text/javascript" src="/js/drag.js"></script>
+    <script type="text/javascript" src="/js/draganddrop.js"></script>
     <script type="text/javascript" src="/js/resize.js"></script>
-    <script type="text/javascript" src="/js/jquery-ui/jquery-ui.js"></script>
     <script type="text/javascript" src="js/tabs.js"></script>
     <script type="text/javascript" src="/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
 
     <script>
-        $(document)
-            .ready(function () {
 
-                // fix menu when passed
-                $('.masthead')
-                    .visibility({
-                        once: false,
-                        onBottomPassed: function () {
-                            $('.fixed.menu').transition('fade in');
-                        },
-                        onBottomPassedReverse: function () {
-                            $('.fixed.menu').transition('fade out');
-                        }
-                    })
-                ;
-
-                // create sidebar and attach to menu open
-                $('#sidebar').first()
-                    .sidebar('attach events', '.sidebarmenu', 'show')
-                ;
-            })
-        ;
     </script>
 </head>
 <body>
 
+<h1> Fire Light</h1>
+<div>
+    <button class="ui-button ui-widget ui-corner-all">Login</button>
+    <button class="ui-button ui-widget ui-corner-all">Logout</button>
+</div>
 <div id="tabs">
         <ul>
             <li><a class="active item" href="/tab_page/home.html">Home</a></li>
@@ -195,24 +164,6 @@
             <li><a class="item" href="/tab_page/kid.html">Kid</a><li>
         </ul>
 </div>
-
-<!-- Following Menu -->
-<div class="ui large top fixed hidden menu">
-    <div class="ui container">
-        <div class="right menu">
-
-            <div class="item">
-                <a class="ui button">Log in</a>
-            </div>
-            <div class="item">
-                <a class="ui primary button">Sign Up</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
 
 <!-- Page Contents -->
 <div class="pusher">
@@ -328,18 +279,18 @@
             <div class="center aligned row">
                 <div class="column ui grid">
                     <div class="one column row">
-                        <div class="two wide centered column dragMe" style="background-image: url(/image/clothes.jpg)">
+                        <div class="two wide centered column dragMe ui-widget-content" style="background-image: url(/image/clothes.jpg)">
                             Clothes
                         </div>
-                        <div class="two wide centered column dragMe" style="background-image: url(/image/bags.jpg)">
+                        <div class="two wide centered column dragMe ui-widget-content" style="background-image: url(/image/bags.jpg)">
                             Bags
                         </div>
-                        <div class="two wide centered column dragMe" style="background-image: url(/image/shoes.jpg)">
+                        <div class="two wide centered column dragMe ui-widget-content" style="background-image: url(/image/shoes.jpg)">
                             Shoes
                         </div>
                     </div>
                 </div>
-                <div id="target" class="column">
+                <div id="target" class="column ui-widget-header">
                     <h1>DROP FAVORITES!</h1>
                 </div>
             </div>
