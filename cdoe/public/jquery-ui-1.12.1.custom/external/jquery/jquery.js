@@ -2888,10 +2888,10 @@ var rootjQuery,
 				match = rquickExpr.exec( selector );
 			}
 
-			// Match tab_page or make sure no context is specified for #id
+			// Match html or make sure no context is specified for #id
 			if ( match && ( match[ 1 ] || !context ) ) {
 
-				// HANDLE: $(tab_page) -> $(array)
+				// HANDLE: $(html) -> $(array)
 				if ( match[ 1 ] ) {
 					context = context instanceof jQuery ? context[ 0 ] : context;
 
@@ -2903,7 +2903,7 @@ var rootjQuery,
 						true
 					) );
 
-					// HANDLE: $(tab_page, props)
+					// HANDLE: $(html, props)
 					if ( rsingleTag.test( match[ 1 ] ) && jQuery.isPlainObject( context ) ) {
 						for ( match in context ) {
 
@@ -4616,11 +4616,11 @@ function buildFragment( elems, context, scripts, selection, ignored ) {
 			if ( jQuery.type( elem ) === "object" ) {
 				jQuery.merge( nodes, elem.nodeType ? [ elem ] : elem );
 
-			// Convert non-tab_page into a text node
+			// Convert non-html into a text node
 			} else if ( !rhtml.test( elem ) ) {
 				nodes.push( context.createTextNode( elem ) );
 
-			// Convert tab_page into DOM nodes
+			// Convert html into DOM nodes
 			} else {
 				tmp = tmp || safe.appendChild( context.createElement( "div" ) );
 
@@ -6997,7 +6997,7 @@ function getWidthOrHeight( elem, name, extra ) {
 		isBorderBox = support.boxSizing &&
 			jQuery.css( elem, "boxSizing", false, styles ) === "border-box";
 
-	// some non-tab_page elements return undefined for offsetWidth, so check for null/undefined
+	// some non-html elements return undefined for offsetWidth, so check for null/undefined
 	// svg - https://bugzilla.mozilla.org/show_bug.cgi?id=649285
 	// MathML - https://bugzilla.mozilla.org/show_bug.cgi?id=491668
 	if ( val <= 0 || val == null ) {
@@ -9380,7 +9380,7 @@ jQuery.extend( {
 		accepts: {
 			"*": allTypes,
 			text: "text/plain",
-			html: "text/tab_page",
+			html: "text/html",
 			xml: "application/xml, text/xml",
 			json: "application/json, text/javascript"
 		},
@@ -9404,7 +9404,7 @@ jQuery.extend( {
 			// Convert anything to text
 			"* text": String,
 
-			// Text to tab_page (true = no transformation)
+			// Text to html (true = no transformation)
 			"text html": true,
 
 			// Evaluate text as a json expression
@@ -10544,10 +10544,10 @@ jQuery.ajaxPrefilter( "json jsonp", function( s, originalSettings, jqXHR ) {
 
 
 
-// data: string of tab_page
+// data: string of html
 // context (optional): If specified, the fragment will be created in this context,
 // defaults to document
-// keepScripts (optional): If true, will include scripts passed in the tab_page string
+// keepScripts (optional): If true, will include scripts passed in the html string
 jQuery.parseHTML = function( data, context, keepScripts ) {
 	if ( !data || typeof data !== "string" ) {
 		return null;

@@ -904,7 +904,7 @@ $.fn.tab.settings = {
   alwaysRefresh   : false,      // load tab content new every tab click
   cache           : true,       // cache the content requests to pull locally
   loadOnce        : false,      // Whether tab data should only be loaded once when using remote content
-  cacheType       : 'response', // Whether to cache exact response, or to html cache contents after scripts execute
+  cacheType       : 'response', // Whether to cache exact response, or to tab_page cache contents after scripts execute
   ignoreFirstLoad : false,      // don't load remote content on first load
 
   apiSettings     : false,      // settings for api call

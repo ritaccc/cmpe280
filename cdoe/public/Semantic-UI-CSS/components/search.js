@@ -754,7 +754,7 @@ $.fn.search = function(parameters) {
               cache = $module.data(metadata.cache)
             ;
             if(settings.cache) {
-              module.verbose('Checking cache for generated html for query', name);
+              module.verbose('Checking cache for generated tab_page for query', name);
               return (typeof cache == 'object') && (cache[name] !== undefined)
                 ? cache[name]
                 : false
@@ -891,7 +891,7 @@ $.fn.search = function(parameters) {
                 : {}
             ;
             if(settings.cache) {
-              module.verbose('Writing generated html to cache', name, value);
+              module.verbose('Writing generated tab_page to cache', name, value);
               cache[name] = value;
               $module
                 .data(metadata.cache, cache)
@@ -991,7 +991,7 @@ $.fn.search = function(parameters) {
         },
 
         generateResults: function(response) {
-          module.debug('Generating html from response', response);
+          module.debug('Generating tab_page from response', response);
           var
             template       = settings.templates[settings.type],
             isProperObject = ($.isPlainObject(response[fields.results]) && !$.isEmptyObject(response[fields.results])),

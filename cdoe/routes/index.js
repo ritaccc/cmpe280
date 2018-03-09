@@ -8,11 +8,11 @@ router.get('/', function(req, res, next) {
 
 /* GET home page. */
 router.get('/main_page', function(req, res, next) {
-    res.render('main_page');
+    res.render('main_page_2');
 });
 
 router.post('/main_page', function(req, res) {
-    res.render('main_page');
+    res.render('main_page_2');
 });
 
 /* GET home page. */

@@ -6581,7 +6581,7 @@ $.widget( "ui.checkboxradio", [ $.ui.formResetMixin, {
 		// input itself.
 		this.label.contents().not( this.element[ 0 ] ).each( function() {
 
-			// The label contents could be text, html, or a mix. We concat each element to get a
+			// The label contents could be text, tab_page, or a mix. We concat each element to get a
 			// string representation of the label, without the input as part of it.
 			that.originalLabel += this.nodeType === 3 ? $( this ).text() : this.outerHTML;
 		} );
@@ -17268,7 +17268,7 @@ $.widget( "ui.spinner", {
 // TODO: switch return back to widget declaration at top of file when this is removed
 if ( $.uiBackCompat !== false ) {
 
-	// Backcompat for spinner html extension points
+	// Backcompat for spinner tab_page extension points
 	$.widget( "ui.spinner", $.ui.spinner, {
 		_enhance: function() {
 			this.uiSpinner = this.element

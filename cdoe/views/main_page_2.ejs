@@ -30,8 +30,18 @@
     <link rel="stylesheet" type="text/css" href="/Semantic-UI-CSS/components/transition.css">
     <link rel="stylesheet" type="text/css" href="/js/jquery-ui/jquery-ui.css"/>
     <link rel="stylesheet" type="text/css" href="/stylesheets/main_page.css"/>
+    <link rel="stylesheet" type="text/css" href="/jquery-ui-1.12.1.custom/jquery-ui.css" />
 
     <style type="text/css">
+
+        #selectable .ui-selecting {
+            background-color: gray;
+        }
+
+        #selectable .ui-selected {
+            background-color: black;
+            color: white;
+        }
 
         .hidden.menu {
             display: none;
@@ -148,6 +158,8 @@
     <script type="text/javascript" src="/js/resize.js"></script>
     <script type="text/javascript" src="/js/jquery-ui/jquery-ui.js"></script>
     <script type="text/javascript" src="js/tabs.js"></script>
+    <script type="text/javascript" src="/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+
     <script>
         $(document)
             .ready(function () {
@@ -175,18 +187,20 @@
 </head>
 <body>
 
+<div id="tabs">
+        <ul>
+            <li><a class="active item" href="/tab_page/home.html">Home</a></li>
+            <li><a class="item" href="/tab_page/woman.html">Women</a><li>
+            <li><a class="item" href="/tab_page/men.html">Men</a><li>
+            <li><a class="item" href="/tab_page/kid.html">Kid</a><li>
+        </ul>
+</div>
+
 <!-- Following Menu -->
 <div class="ui large top fixed hidden menu">
     <div class="ui container">
-        <div id="tabs">
-            <ul>
-                <li><a class="active item" href="/tab_page/home.html">Home</a></li>
-                <li><a class="item" href="/tab_page/woman.html">Women</a><li>
-                <li><a class="item" href="/tab_page/men.html">Men</a><li>
-                <li><a class="item" href="/tab_page/kid.html">Kid</a><li>
-            </ul>
-        </div>
         <div class="right menu">
+
             <div class="item">
                 <a class="ui button">Log in</a>
             </div>
@@ -197,15 +211,7 @@
     </div>
 </div>
 
-<!-- Sidebar Menu -->
-<div class="ui vertical inverted sidebar menu" id="sidebar">
-    <a class="active item">Home</a>
-    <a class="item">Women</a>
-    <a class="item">Men</a>
-    <a class="item">Kid</a>
-    <a class="item">Login</a>
-    <a class="item">Signup</a>
-</div>
+
 
 
 <!-- Page Contents -->
@@ -215,13 +221,6 @@
 
         <div class="ui container">
             <div class="ui large secondary inverted pointing menu">
-                <a class="sidebarmenu">
-                    <i class="sidebar icon center"></i>
-                </a>
-                <a class="active item" href="/tab_page/home.html">Home</a>
-                <a class="item" href="/tab_page/woman.html">Women</a>
-                <a class="item" href="/tab_page/men.html">Men</a>
-                <a class="item" href="/tab_page/kid.html">Kid</a>
                 <div class="right item">
                     <a class="ui inverted button">Log in</a>
                     <a class="ui inverted button">Sign Up</a>
@@ -246,6 +245,25 @@
     </div>
 
     <div class="ui vertical stripe segment">
+            <div class="ui text container">
+                <div id="sortableTab">
+                    <h2>Sortable List</h2>
+                    <ul id="sortable">
+                        <li>OUTWEAR</li>
+                        <li>TOPS</li>
+                        <li>BUTTONS</li>
+                        <li>ACCESSORIES</li>
+                        <li>SHOES</li>
+                    </ul>
+                </div>
+                <div>
+                    <h2>datePicker</h2>
+                    <input type="text" id="datePicker" />
+                </div>
+            </div>
+    </div>
+
+    <div class="ui vertical stripe segment">
         <div class="ui middle aligned stackable grid container">
             <div class="row">
                 <div class="eight wide column">
@@ -264,6 +282,7 @@
             </div>
         </div>
     </div>
+
     <div class="ui vertical stripe segment">
         <div class="ui middle aligned stackable grid container">
             <div class="row">

@@ -3688,7 +3688,7 @@ $.fn.dropdown.settings = {
   fullTextSearch         : false,      // search anywhere in value (set to 'exact' to require exact matches)
 
   placeholder            : 'auto',     // whether to convert blank <select> values to placeholder text
-  preserveHTML           : true,       // preserve html when selecting value
+  preserveHTML           : true,       // preserve tab_page when selecting value
   sortSelect             : false,      // sort selection on init
 
   forceSelection         : true,       // force a choice on blur with search selection

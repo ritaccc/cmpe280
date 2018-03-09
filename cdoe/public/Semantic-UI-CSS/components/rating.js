@@ -105,7 +105,7 @@ $.fn.rating = function(parameters) {
               maxRating = module.get.maxRating(),
               html      = $.fn.rating.settings.templates.icon(maxRating)
             ;
-            module.debug('Generating icon html dynamically');
+            module.debug('Generating icon tab_page dynamically');
             $module
               .html(html)
             ;

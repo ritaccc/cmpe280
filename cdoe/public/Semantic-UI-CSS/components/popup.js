@@ -236,7 +236,7 @@ $.fn.popup = function(parameters) {
           }
         },
 
-        // generates popup html from metadata
+        // generates popup tab_page from metadata
         create: function() {
           var
             html      = module.get.html(),
@@ -245,7 +245,7 @@ $.fn.popup = function(parameters) {
           ;
 
           if(html || content || title) {
-            module.debug('Creating pop-up html');
+            module.debug('Creating pop-up tab_page');
             if(!html) {
               html = settings.templates.popup({
                 title   : title,
@@ -1386,7 +1386,7 @@ $.fn.popup.settings = {
   // explicitly set content
   content        : false,
 
-  // explicitly set html
+  // explicitly set tab_page
   html           : false,
 
   // explicitly set title

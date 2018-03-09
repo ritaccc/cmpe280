@@ -24,7 +24,7 @@ $.fn.sidebar = function(parameters) {
     $allModules     = $(this),
     $window         = $(window),
     $document       = $(document),
-    $html           = $('html'),
+    $html           = $('tab_page'),
     $head           = $('head'),
 
     moduleSelector  = $allModules.selector || '',
@@ -564,7 +564,7 @@ $.fn.sidebar = function(parameters) {
 
         set: {
 
-          // ios only (scroll on html not document). This prevent auto-resize canvas/scroll in ios
+          // ios only (scroll on tab_page not document). This prevent auto-resize canvas/scroll in ios
           // (This is no longer necessary in latest iOS)
           ios: function() {
             $html.addClass(className.ios);
@@ -614,7 +614,7 @@ $.fn.sidebar = function(parameters) {
             }
           },
 
-          // ios scroll on html not document
+          // ios scroll on tab_page not document
           ios: function() {
             $html.removeClass(className.ios);
           },

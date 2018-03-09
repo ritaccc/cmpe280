@@ -323,7 +323,7 @@ $.fn.embed = function(parameters) {
 
         generate: {
           embed: function(url) {
-            module.debug('Generating embed html');
+            module.debug('Generating embed tab_page');
             var
               source = module.get.source(),
               html,
