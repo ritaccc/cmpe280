@@ -30,7 +30,7 @@ function highlightTarget(event, ui)
 {
     $("#target").addClass("ui-state-highlight")
         .html("Dropped ")
-        .append(ui.draggable.text());
+        .append(ui.draggable.text()).append();
 }
 
 function resetTarget(event, ui)
