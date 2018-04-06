@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="/js/ejs.mn.js"></script>
+</head>
+<body>
+<h1>user list from mongodb</h1>
+    <table border="2">
+        <tr>
+            <th>
+                User Name
+            </th>
+            <th>
+                Password
+            </th>
+            <th>
+                Last Name
+            </th>
+            <th>
+                First Name
+            </th>
+        </tr>
+        <% for(var i = 0;i<userlist.length;i++) {%>
+        <tr>
+            <td><%= userlist[i].user_name%></td>
+            <td><%= userlist[i].password%></td>
+            <td><%= userlist[i].last_name%></td>
+            <td><%= userlist[i].first_name%></td>
+
+        </tr>
+        <% } %>
+    </table>
+</body>
+</html>
