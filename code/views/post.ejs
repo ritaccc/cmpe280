@@ -27,7 +27,8 @@
 
     <!--<link rel="stylesheet" type="text/css" href="/stylesheets/index.css"/>-->
     <script>
-        function click_login_function() {
+
+        function click_register_function() {
             email = document.getElementById("email").value;
             password = document.getElementById("password").value;
             emailRE = "^.+@.+\..{2,4}$";
@@ -35,10 +36,7 @@
                 alert("Invalid email address. Should be xxxxx@xxxxx.xxx\n");
             } else if (!password || password.length === 0) {
                 alert("Password is required!");
-            } else {
-                alert("you click register button");
             }
-            event.preventDefault();
         }
     </script>
 
@@ -74,26 +72,46 @@
 <div class="ui middle aligned center aligned grid">
     <div class="column">
 
-             <form class="ui large form" method="get">
-
+        <form class="ui large form" method="post" action="">
 
             <div class="ui stacked segment">
                 <div class="field">
-                    <div class="ui left icon input">
-                        <i class="user icon"></i>
-                        <input id="email" type="email" name="username" placeholder="email" pattern = "^.+@.+\..{2,4}$">
+                    <label type="text"><b>Email: </b></label>
+                    <div class="ui left input">
+                        <%
+                        var password = userlist[0].password;
+                        var username = userlist[0].user_name;
+                        var last_name = userlist[0].last_name;
+                        var first_name = userlist[0].first_name;
+                        %>
+                        <input id="email" type="email" name="username" pattern = "^.+@.+\..{2,4}$" value="<%=username%>" readonly required>
                     </div>
                 </div>
                 <div class="field">
-                    <div class="ui left icon input">
-                        <i class="lock icon"></i>
-                        <input id="password" type="password" name="password" placeholder="Password">
+                    <label type="text"><b>Password: </b></label>
+                    <div class="ui left input">
+                        <input id="password" type="text" name="password" value="<%=password%>" required>
                     </div>
                 </div>
-                <div><input class="ui fluid large blue submit button" type="submit" name="login" value="Login" formaction="/user/login" onsubmit="click_login_function()"/></div>
 
-                <br>
-                <div><input class="ui fluid large blue submit button" type="submit" name="register" value="Register" formaction="/register"/></div>
+                <div class="field">
+                    <label type="text"><b>Last Name: </b></label>
+                    <div class="ui left input">
+                        <input id="lastname" type="text" name="lastname" value="<%=last_name%>" required>
+                    </div>
+                </div>
+                <div class="field">
+                    <label type="text"><b>First Name: </b></label>
+                    <div class="ui left input">
+                        <input id="firstname" type="text" name="firstname" value="<%=first_name%>" required>
+                    </div>
+                </div>
+                <div>
+                    <input class="ui fluid large blue submit button" type="submit" name="update" value="update" formaction="/user/updateuser"/>
+                    <br>
+                    <input class="ui fluid large blue submit button" type="submit" name="delete" value="delete" formaction="/user/deleteuser">
+                </div>
+
             </div>
 
             <div id="er" class="ui error message"></div>
@@ -108,7 +126,3 @@
 
 </body>
 </html>
-
-
-
-

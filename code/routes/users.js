@@ -25,5 +25,13 @@ router.get('/register',userCtrl.register_mainpage);
 /* Add new user into user DB */
 router.post('/adduser',userCtrl.register);
 
+/* return user update web page*/
+router.get('/:user_name',userCtrl.update_page);
 
+/* Update the users list*/
+router.post('/updateuser',userCtrl.update_user);
+
+
+/* delete the users list*/
+router.post('/deleteuser',userCtrl.delete_user);
 module.exports = router;
