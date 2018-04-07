@@ -17,7 +17,7 @@ router.post('/main_page', function(req, res) {
 
 /* GET home page. */
 router.get('/register', function(req, res, next) {
-    res.redirect('/user/register');
+    res.render('register');
 });
 
 

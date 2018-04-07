@@ -146,15 +146,23 @@
     <script type="text/javascript" src="/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
 
     <script>
+        function routing(num){
+            if(num===1)
+            {
+                window.location.replace("http://localhost:3000/");
+            }
+            else{
 
+            }
+        }
     </script>
 </head>
 <body>
 
 <h1> Fire Light</h1>
 <div>
-    <button class="ui-button ui-widget ui-corner-all"  onclick="alert('You are trying to login')">Login</button>
-    <button class="ui-button ui-widget ui-corner-all"  onclick="alert('You are trying to logout')">Logout</button>
+    <button class="ui-button ui-widget ui-corner-all"  onclick="routing(1)">Login</button>
+    <button class="ui-button ui-widget ui-corner-all"  onclick="alert('u click logout function')">Logout</button>
 </div>
 <div id="tabs">
         <ul>

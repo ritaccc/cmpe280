@@ -35,10 +35,8 @@
                 alert("Invalid email address. Should be xxxxx@xxxxx.xxx\n");
             } else if (!password || password.length === 0) {
                 alert("Password is required!");
-            } else {
-                alert("you click register button");
+
             }
-            event.preventDefault();
         }
     </script>
 
@@ -74,32 +72,35 @@
 <div class="ui middle aligned center aligned grid">
     <div class="column">
 
-             <form class="ui large form" method="get">
+             <form class="ui large form" method="get" action="/user/login">
 
 
             <div class="ui stacked segment">
                 <div class="field">
                     <div class="ui left icon input">
                         <i class="user icon"></i>
-                        <input id="email" type="email" name="username" placeholder="email" pattern = "^.+@.+\..{2,4}$">
+                        <input id="email" type="email" name="user_name" placeholder="email" pattern = "^.+@.+\..{2,4}$" required/>
                     </div>
                 </div>
                 <div class="field">
                     <div class="ui left icon input">
                         <i class="lock icon"></i>
-                        <input id="password" type="password" name="password" placeholder="Password">
+                        <input id="password" type="password" name="password" placeholder="Password" required/>
                     </div>
                 </div>
-                <div><input class="ui fluid large blue submit button" type="submit" name="login" value="Login" formaction="/user/login" onsubmit="click_login_function()"/></div>
-
+                <div><input class="ui fluid large blue submit button" type="submit" name="login" value="Login"/></div>
                 <br>
-                <div><input class="ui fluid large blue submit button" type="submit" name="register" value="Register" formaction="/register"/></div>
+                <div><button class="ui fluid large blue submit button" name="register" value="Register" onclick="window.location.href='http://localhost:3000/register'"/>Register</div>
+                <br>
+
             </div>
 
             <div id="er" class="ui error message"></div>
 
         </form>
+
     </div>
+
 </div>
 
 

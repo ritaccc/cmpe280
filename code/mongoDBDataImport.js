@@ -1,7 +1,7 @@
 //MongoDB setup
 var mongo = require('mongodb');
 var monk = require('monk');
-var db = monk('localhost:27017/280_assignment');
+var db = monk('localhost:27017/280_assignment_1');
 
 var collection = db.get('user');
 

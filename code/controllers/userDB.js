@@ -18,6 +18,26 @@ module.exports.get_userList = function(req, res)
 module.exports.login = function (req,res) {
     var db = req.db;
     var collection = db.get('user');
+    var userName = req.body.user_name;
+    var password = req.body.password;
+
+    //check if the user account is registered or not
+    var cursor = collection.find({"user_name":userName,"password":password},function(err,result){
+        if(err)
+        {
+            res.send("connection error with mongodb");
+        }
+        else if(result.length!==0){
+            //the account name is not exist in the database, insert the user info to the database
+            res.render("main_page_2");
+
+        }
+        else{
+            res.render("login");
+        }
+
+    });
+    res.render('login');
 }
 
 module.exports.register = function (req,res) {
@@ -31,7 +51,6 @@ module.exports.register = function (req,res) {
     var lastName = req.body.lastname;
     var firstName = req.body.firstname;
 
-    var collection = db.get('user');
 
     //check if the user account is registered or not
     var cursor = collection.find({"user_name":userName},function(err,result){
