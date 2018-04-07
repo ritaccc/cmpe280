@@ -3,44 +3,41 @@
  */
 
 
-module.exports.get_userList = function(req, res)
-{
+module.exports.get_userList = function (req, res) {
 
     var db = req.db;
     var collection = db.get('user');
     collection.find({}, {},
-        function(e, docs)
-        {
-            res.render('userlist', { "userlist" : docs });
+        function (e, docs) {
+            res.render('userlist', {"userlist": docs});
         });
 };
 
-module.exports.login = function (req,res) {
+module.exports.login = function (req, res) {
     var db = req.db;
     var collection = db.get('user');
     var userName = req.body.user_name;
     var password = req.body.password;
 
     //check if the user account is registered or not
-    var cursor = collection.find({"user_name":userName,"password":password},function(err,result){
-        if(err)
-        {
+    var cursor = collection.find({"user_name": userName, "password": password}, function (err, result) {
+        if (err) {
             res.send("connection error with mongodb");
         }
-        else if(result.length!==0){
+        else if (result.length !== 0) {
             //the account name is not exist in the database, insert the user info to the database
-            res.render("main_page_2");
+            res.redirect("/main_page");
 
         }
-        else{
+        else {
             res.render("login");
         }
 
     });
-    res.render('login');
-}
+    //res.render('login');
+};
 
-module.exports.register = function (req,res) {
+module.exports.register = function (req, res) {
 
     var db = req.db;
     var collection = db.get('user');
@@ -53,19 +50,22 @@ module.exports.register = function (req,res) {
 
 
     //check if the user account is registered or not
-    var cursor = collection.find({"user_name":userName},function(err,result){
-        if(err)
-        {
+    var cursor = collection.find({"user_name": userName}, function (err, result) {
+        if (err) {
             res.send("connection error with mongodb");
         }
-        if(result.length===0){
+        if (result.length === 0) {
             //the account name is not exist in the database, insert the user info to the database
-            collection.insert({"user_name":userName,"password":password,"last_name":lastName,"first_name":firstName},function(err,doc){
-                if(err)
-                {
+            collection.insert({
+                "user_name": userName,
+                "password": password,
+                "last_name": lastName,
+                "first_name": firstName
+            }, function (err, doc) {
+                if (err) {
                     res.send("connection error with mongodb");
                 }
-                else{
+                else {
                     //Forward to success page
                     res.redirect("/user/userlist");
                 }
@@ -73,9 +73,9 @@ module.exports.register = function (req,res) {
         }
     });
 
-}
+};
 
-module.exports.update_user = function (req,res) {
+module.exports.update_user = function (req, res) {
 
     var db = req.db;
 
@@ -89,22 +89,21 @@ module.exports.update_user = function (req,res) {
 
     collection.update(
         {
-            "user_name":userName
+            "user_name": userName
         },
         {
-            $set:{
-                "password":password,
-                "last_name":lastName,
-                "first_name":firstName
-            },$currentDate: { lastModified: true }
+            $set: {
+                "password": password,
+                "last_name": lastName,
+                "first_name": firstName
+            }, $currentDate: {lastModified: true}
         }
-    ).then(function(result)
-    {
+    ).then(function (result) {
         res.redirect("/user/userlist");
     })
-}
+};
 
-module.exports.delete_user = function (req,res) {
+module.exports.delete_user = function (req, res) {
 
     var db = req.db;
 
@@ -114,15 +113,15 @@ module.exports.delete_user = function (req,res) {
     var collection = db.get('user');
 
     //check if the user account is registered or not
-    collection.remove({"user_name":userName}).then(function(err,result) {
+    collection.remove({"user_name": userName}).then(function (err, result) {
             res.redirect("/user/userlist");
         }
     );
 
 
-}
+};
 
-module.exports.update_page = function (req,res) {
+module.exports.update_page = function (req, res) {
 
     var db = req.db;
 
@@ -131,17 +130,16 @@ module.exports.update_page = function (req,res) {
     var collection = db.get('user');
 
     //check if the user account is registered or not
-    var cursor = collection.find({"user_name":userName},function(err,result){
-        if(err)
-        {
+    var cursor = collection.find({"user_name": userName}, function (err, result) {
+        if (err) {
             res.send("connection error with mongodb");
         }
-        if(result.length!==0){
-            res.render('post', { "userlist" : result });
+        if (result.length !== 0) {
+            res.render('post', {"userlist": result});
         }
     });
-}
+};
 
-module.exports.register_mainpage = function (req,res) {
+module.exports.register_mainpage = function (req, res) {
     res.render(userName);
-}
+};

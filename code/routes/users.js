@@ -17,7 +17,7 @@ router.post('/', function(req, res, next) {
 router.get('/userlist', userCtrl.get_userList);
 
 /* Login the user account*/
-router.get('/login',userCtrl.login)
+router.post('/login',userCtrl.login)
 
 /* Return registration page to the user */
 router.get('/register',userCtrl.register_mainpage);

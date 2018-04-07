@@ -72,7 +72,7 @@
 <div class="ui middle aligned center aligned grid">
     <div class="column">
 
-             <form class="ui large form" method="get" action="/user/login">
+        <form class="ui large form" method="post" action="/user/login">
 
 
             <div class="ui stacked segment">
@@ -88,7 +88,7 @@
                         <input id="password" type="password" name="password" placeholder="Password" required/>
                     </div>
                 </div>
-                <div><input class="ui fluid large blue submit button" type="submit" name="login" value="Login"/></div>
+                <div><button class="ui fluid large blue submit button" type="submit" name="login" value="Login">Login</button></div>
                 <br>
                 <div><button class="ui fluid large blue submit button" name="register" value="Register" onclick="window.location.href='http://localhost:3000/register'"/>Register</div>
                 <br>
