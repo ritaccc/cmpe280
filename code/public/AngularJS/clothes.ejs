@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="clothesCtrl" class="w3-card-2 w3-margin"
+     style="max-width:400px;">
+    <header class="w3-container w3-light-grey w3-padding-16">
+        <h3>Cloth Filter</h3>
+    </header>
+
+    <div class="w3-container w3-light-grey w3-padding-32">
+        <div class="w3-row w3-margin-top">
+            <div class="w3-col s10">
+                <h4>Add Cloth Size here</h4>
+                <input placeholder="Add Cloth Size here"
+                       ng-model="ClothSize"
+                       class="w3-input w3-border w3-padding">
+                <button ng-click="addClothSize()"
+                        class="w3-btn w3-padding w3-green">
+                    Add
+                </button>
+            </div>
+        </div>
+        <p class="w3-text-red">{{errortext}}</p>
+    </div>
+
+    <div class="w3-container w3-light-grey w3-padding-32">
+        <div class="w3-row w3-margin-top">
+            <div class="w3-col s10">
+                <h4>Add Max Price here</h4>
+                <input placeholder="Add Max Price here"
+                       ng-model="maxPrice" required
+                       class="w3-input w3-border w3-padding">
+                <button ng-click="addMaxPrice()"
+                        class="w3-btn w3-padding w3-green">
+                    Add
+                </button>
+            </div>
+        </div>
+        <p class="w3-text-red">{{errortext}}</p>
+    </div>
+
+    <div class="w3-container w3-light-grey w3-padding-32">
+        <div class="w3-row w3-margin-top">
+            <div class="w3-col s10">
+                <h4>Search Your Subscription List</h4>
+                <p>Try Search "cloth size"</p>
+                <p><input type="text" ng-model="keyword"></p>
+                <h4>Click to set to default Search List</h4>
+                <button ng-click="clearList()"
+                        class="w3-btn w3-padding w3-green">
+                    Clear List
+                </button>
+            </div>
+        </div>
+        <p class="w3-text-red">{{errortext}}</p>
+
+
+    </div>
+
+
+    <ul class="w3-ul">
+        <li ng-repeat="p in list | filter:keyword"
+            class="w3-padding-16">
+            {{p}}
+            <span ng-click="removeItem($index)"
+                  style="cursor:pointer;"
+                  class="w3-right w3-margin-right">
+                    x
+                </span>
+        </li>
+
+
+    </ul>
+
+
+</div>
+</body>
+</html>

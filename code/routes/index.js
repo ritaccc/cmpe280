@@ -20,6 +20,11 @@ router.get('/register', function(req, res, next) {
     res.render('register');
 });
 
+/* Get Search Filter Page. */
+router.get('/filter', function(req, res, next) {
+    res.render('filter');
+});
+
 
 
 

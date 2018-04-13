@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+<script src="script.js"></script>
+
+
+<head>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>Search Filter</title>
+    <link rel="stylesheet" type="text/css" href="/Semantic-UI-CSS/components/reset.css">
+    <link rel="stylesheet" type="text/css" href="/Semantic-UI-CSS/components/site.css">
+
+    <link rel="stylesheet" type="text/css" href="/Semantic-UI-CSS/components/container.css">
+    <link rel="stylesheet" typenode="text/css" href="/Semantic-UI-CSS/components/grid.css">
+    <link rel="stylesheet" type="text/css" href="/Semantic-UI-CSS/components/header.css">
+    <link rel="stylesheet" type="text/css" href="/Semantic-UI-CSS/components/image.css">
+    <link rel="stylesheet" type="text/css" href="/Semantic-UI-CSS/components/menu.css">
+
+    <link rel="stylesheet" type="text/css" href="/Semantic-UI-CSS/components/divider.css">
+    <link rel="stylesheet" type="text/css" href="/Semantic-UI-CSS/components/segment.css">
+    <link rel="stylesheet" type="text/css" href="/Semantic-UI-CSS/components/form.css">
+    <link rel="stylesheet" type="text/css" href="/Semantic-UI-CSS/components/input.css">
+    <link rel="stylesheet" type="text/css" href="/Semantic-UI-CSS/components/button.css">
+    <link rel="stylesheet" type="text/css" href="/Semantic-UI-CSS/components/list.css">
+    <link rel="stylesheet" type="text/css" href="/Semantic-UI-CSS/components/message.css">
+    <link rel="stylesheet" type="text/css" href="/Semantic-UI-CSS/components/icon.css">
+
+
+    <script src="/Semantic-UI-CSS/themes/default/assets/library/jquery.min.js"></script>
+    <script src="/Semantic-UI-CSS/components/form.js"></script>
+    <script src="/Semantic-UI-CSS/components/transition.js"></script>
+
+
+    <style type="text/css">
+        body > .grid {
+            height: 100%;
+        }
+        .bodybg {
+            background-image: url("/image/bgimage.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url("/image/bgimage.jpg");
+        }
+        body.background {
+            opacity: 0.5;
+        }
+        .image {
+            margin-top: -100px;
+        }
+
+        .column {
+            max-width: 450px;
+        }
+
+    </style>
+</head>
+
+<body ng-app="myApp">
+<h1>Please Define Your Subscription Catalog</h1>
+
+<p>Please type in valid E-mail address to subscript:</p>
+<form name="myForm">
+    <input type="email" name="myInput" ng-model="myInput">
+</form>
+<span ng-show="myForm.myInput.$invalid">The valid email is required.</span>
+
+
+<h2>Please Select Catalog </h2>
+
+<div class="w3-bar">
+<a href="#!clothes" class="w3-bar-item w3-button">Clothes</a>
+<a href="#!accessories" class="w3-bar-item w3-button">Accessories</a>
+</div>
+
+<div ng-view></div>
+
+<script>
+    var app = angular.module("myApp", ["ngRoute"]);
+    app.config(function($routeProvider) {
+        $routeProvider
+            .when("/clothes", {
+                templateUrl : "AngularJS/clothes.ejs",
+                controller : "clothesCtrl"
+            })
+            .when("/accessories", {
+                templateUrl : "AngularJS/accessories.ejs",
+                controller : "accessoriesCtrl"
+            })
+
+    });
+
+    app.controller("clothesCtrl", function ($scope, ListServices) {
+
+        $scope.list = [];
+
+        $scope.addClothSize = function()
+        {
+            $scope.errortext = "";
+            if (!$scope.ClothSize) return;  // add item is empty
+
+            // Add the item to the list if it's not already there.
+            if ($scope.list.indexOf($scope.ClothSize) == -1) {
+                $scope.list.push("cloth size: " + $scope.ClothSize);
+            }
+            else {
+                $scope.errortext =
+                    "The item is already in your subscription list.";
+            }
+        }
+
+        $scope.addMaxPrice = function()
+        {
+            $scope.errortext = "";
+            if (!$scope.maxPrice) return;  // add item is empty
+
+            // Add the item to the list if it's not already there.
+            if ($scope.list.indexOf($scope.maxPrice) == -1) {
+                $scope.list.push("max price: " + $scope.maxPrice);
+            }
+            else {
+                $scope.errortext =
+                    "The item is already in your subscription list.";
+            }
+        }
+
+        $scope.removeItem = function(x)
+        {
+            $scope.errortext = "";
+            $scope.list.splice(x, 1);
+        }
+
+        $scope.clearList = function () {
+            $scope.list = ListServices.myFunc();
+        }
+
+    });
+
+    app.service('ListServices', function() {
+        this.myFunc = function () {
+            return [];
+        }
+    });
+
+    app.controller("accessoriesCtrl", function ($scope) {
+        $scope.accessorieslist = [];
+
+        $scope.addAccessoriesBrand = function()
+        {
+            $scope.errortext = "";
+            if (!$scope.accessoriesBrand) return;  // add item is empty
+
+            // Add the item to the list if it's not already there.
+            if ($scope.accessorieslist.indexOf($scope.accessoriesBrand) == -1) {
+                $scope.accessorieslist.push("Accessories Brand: " + $scope.accessoriesBrand);
+            }
+            else {
+                $scope.errortext =
+                    "The item is already in your subscription list.";
+            }
+        }
+
+        $scope.removeItem = function(x)
+        {
+            $scope.errortext = "";
+            $scope.accessorieslist.splice(x, 1);
+        }
+    });
+
+
+</script>
+</body>
+
+
+</html>
+
+
+
+
