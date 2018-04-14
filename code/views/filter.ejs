@@ -62,7 +62,7 @@
 </head>
 
 <body ng-app="myApp">
-<h1>Please Define Your Subscription Catalog</h1>
+<h1>Please Define Your Subscription List</h1>
 
 <p>Please type in valid E-mail address to subscript:</p>
 <form name="myForm">
@@ -71,7 +71,7 @@
 <span ng-show="myForm.myInput.$invalid">The valid email is required.</span>
 
 
-<h2>Please Select Catalog </h2>
+<h2>Please Select Subscription Catalog </h2>
 
 <div class="w3-bar">
 <a href="#!clothes" class="w3-bar-item w3-button">Clothes</a>
@@ -121,7 +121,7 @@
 
             // Add the item to the list if it's not already there.
             if ($scope.list.indexOf($scope.maxPrice) == -1) {
-                $scope.list.push("max price: " + $scope.maxPrice);
+                $scope.list.push("brand: " + $scope.maxPrice);
             }
             else {
                 $scope.errortext =
