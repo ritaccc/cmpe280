@@ -64,12 +64,13 @@
 <body ng-app="myApp">
 <h1>Please Define Your Subscription List</h1>
 
-<p>Please type in valid E-mail address to subscript:</p>
-<form name="myForm">
-    <input type="email" name="myInput" ng-model="myInput">
-</form>
-<span ng-show="myForm.myInput.$invalid">The valid email is required.</span>
-
+<div class="w3-container w3-light-grey w3-padding-32">
+    <p>Please type in valid E-mail address to subscript:</p>
+    <form name="myForm">
+        <input type="email" name="myInput" ng-model="myInput">
+    </form>
+    <span ng-show="myForm.myInput.$invalid">The valid email is required.</span>
+</div>
 
 <h2>Please Select Subscription Catalog </h2>
 
@@ -114,14 +115,14 @@
             }
         }
 
-        $scope.addMaxPrice = function()
+        $scope.addClothBrand = function()
         {
             $scope.errortext = "";
-            if (!$scope.maxPrice) return;  // add item is empty
+            if (!$scope.clothBrand) return;  // add item is empty
 
             // Add the item to the list if it's not already there.
-            if ($scope.list.indexOf($scope.maxPrice) == -1) {
-                $scope.list.push("brand: " + $scope.maxPrice);
+            if ($scope.list.indexOf($scope.clothBrand) == -1) {
+                $scope.list.push("brand: " + $scope.clothBrand);
             }
             else {
                 $scope.errortext =
